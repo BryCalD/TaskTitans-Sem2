@@ -66,7 +66,7 @@ export default function Page() {
     console.log("Sent pass:" + pass)
 
 
-    runDBCallAsync(`api/login/route.js?email=${email}&pass=${pass}`)
+    runDBCallAsync(`api/login/?email=${email}&pass=${pass}`)
 
 
 
