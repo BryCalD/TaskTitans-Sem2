@@ -18,6 +18,8 @@ import { createTheme } from '@mui/material/styles';
 import { green, purple } from '@mui/material/colors';
 
 
+
+
 export default function Page() {
 
 
@@ -27,21 +29,14 @@ export default function Page() {
   calling the fetch to get things from the database.
   */ 
   async function runDBCallAsync(url) {
-
-
     const res = await fetch(url);
     const data = await res.json();
-
- 
-    if(data.data== "valid"){
-      console.log("login is valid!")
-
-      
+    if(data.data== "true"){
+    console.log("registered")
     } else {
-
-      console.log("not valid  ")
+    console.log("not registered ")
     }
-  }
+    }
 
 
   /*
@@ -61,13 +56,15 @@ export default function Page() {
 
     let email = data.get('email')
 		let pass = data.get('pass')
+    let dob = data.get('dob')
 
     console.log("Sent email:" + email)
     console.log("Sent pass:" + pass)
+    console.log("Sent dob:" + dob)
 
 
-    runDBCallAsync(`api/login/route.js?email=${email}&pass=${pass}`)
 
+    runDBCallAsync(`api/register/route.js?email=${email}&pass=${pass}&dob=${dob}`)
 
 
 
@@ -107,41 +104,51 @@ export default function Page() {
           
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign in
+          Register
         </Typography>
-        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
-            autoFocus
-          />
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            name="pass"
-            label="Pass"
-            type="pass"
-            id="pass"
-            autoComplete="current-password"
-          />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            sx={{ mt: 3, mb: 2 }}
-          >
-            Sign In
-          </Button>
+        <Box component="form" onSubmit={handleSubmit} noValidate sx={{mt: 1 }}>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email Address"
+              name="email"
+              autoComplete="email"
+              autoFocus
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="pass"
+              label="Pass"
+              type="pass"
+              id="pass"
+              autoComplete="current-password"
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="dob"
+              label="dob"
+              type="text"
+              id="dob"
+              autoComplete=""
+            />
+            <FormControlLabel
+              control={<Checkbox value="remember" color="primary" />}
+              label="Remember me"
+            />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
+            Register
+            </Button>
 
 
 
@@ -153,8 +160,8 @@ export default function Page() {
               </Link>
             </Grid>
             <Grid item>
-              <Link href="register" variant="body2">
-                {"Don't have an account? Sign Up"}
+              <Link href="page.js" variant="body2">
+                {"Have an account? Sign In"}
               </Link>
             </Grid>
           </Grid>
