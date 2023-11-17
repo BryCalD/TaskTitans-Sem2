@@ -29,12 +29,12 @@ const [data, setData] = useState(null)
 const [weather, setWeatherData] = useState(0)
 
 useEffect(() => {
-    fetch('api/getProducts/')
+    fetch('api/getProducts')
     .then((res) => res.json())
     .then((data) => {
     setData(data)
     })
-    fetch('api/getWeather/route.js')
+    fetch('api/getWeather')
     .then((res) => res.json())
     .then((weather) => {
     setWeatherData(weather)

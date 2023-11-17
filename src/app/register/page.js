@@ -64,7 +64,7 @@ export default function Page() {
 
 
 
-    runDBCallAsync(`api/register/route.js?email=${email}&pass=${pass}&dob=${dob}`)
+    runDBCallAsync(`api/register/?email=${email}&pass=${pass}&dob=${dob}`)
 
 
 
