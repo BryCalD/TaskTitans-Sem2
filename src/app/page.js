@@ -1,4 +1,4 @@
-dashboard
+
 import React from 'react';
 import Link from 'next/link';
 import { Container, Typography, Button, Grid } from '@mui/material';
