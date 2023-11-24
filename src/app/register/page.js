@@ -1,3 +1,4 @@
+register
 'use client';
 import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
@@ -160,7 +161,7 @@ export default function Page() {
               </Link>
             </Grid>
             <Grid item>
-              <Link href="page.js" variant="body2">
+              <Link href="/login" variant="body2" passHref>
                 {"Have an account? Sign In"}
               </Link>
             </Grid>

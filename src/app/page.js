@@ -1,79 +1,35 @@
-'use client';
-import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import {ThemeProvider } from '@mui/material/styles';
-import { createTheme } from '@mui/material/styles';
-import { green, purple } from '@mui/material/colors';
-import { useState, useEffect } from 'react'
+dashboard
+import React from 'react';
+import Link from 'next/link';
+import { Container, Typography, Button, Grid } from '@mui/material';
 
-export default function Page() {
-//
-// function for putting items into the shopping cart.
-//
-function putInCart(pname){
-console.log("putting in cart: " + pname)
-fetch('api/getProducts/')
+const HomePage = () => {
+  return (
+    <Container>
+      <Grid container direction="column" alignItems="center" spacing={2}>
+        <Grid item>
+          <Typography variant="h2" align="center" gutterBottom>
+            TaskTitans
+          </Typography>
+        </Grid>
+        <Grid item>
+          <Link href="/register" passHref>
+            <Button variant="contained" color="primary">
+              Sign Up
+            </Button>
+          </Link>
+        </Grid>
+        <Grid item>
+          <Link href="/login" passHref>
+            <Button variant="contained" color="primary">
+              Sign In
+            </Button>
+          </Link>
+        </Grid>
+      </Grid>
+    </Container>
+  );
+};
 
-}
-const [data, setData] = useState(null)
-const [weather, setWeatherData] = useState(0)
+export default HomePage;
 
-useEffect(() => {
-    fetch('api/getProducts')
-    .then((res) => res.json())
-    .then((data) => {
-    setData(data)
-    })
-    fetch('api/getWeather')
-    .then((res) => res.json())
-    .then((weather) => {
-    setWeatherData(weather)
-    })
-    }, [])
-
-if (!data) return <p>No data</p>
-const theme = createTheme({
-palette: {
-secondary: {
-main: green[500],
-},
-},
-});
-
-if (!weather) return <p>No weather</p>
-
-return (
-<ThemeProvider theme={theme}>
-Today's temperature: {JSON.stringify(weather.temp)}
-<Container component="main" maxWidth="xs">
-<div style={{fontSize: '40px'}} > Dashboard</div>
-<div>
-{
-data.map((item, i) => (
-<div style={{padding: '20px'}} key={i} >
-Unique ID: {item._id}
-<br></br>
-{item.pname}
--
-{item.price}
-<br></br>
-<Button onClick={() => putInCart(item.pname)} variant="outlined"> Add to cart
-</Button>
-</div>
-))
-}
-</div>
-</Container>
-</ThemeProvider>
-);
-}
