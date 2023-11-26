@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Container, Typography, Button, Grid,  AppBar, Toolbar, } from '@mui/material';
-import CustomAppBar from '../components/ResponsiveAppBarHome'; // Import the AppBar component
+import CustomAppBar from './components/ResponsiveAppBarHome'; // Import the AppBar component
 
 const HomePage = () => {
   return (
