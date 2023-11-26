@@ -1,4 +1,3 @@
-
 'use client';
 import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
@@ -17,6 +16,8 @@ import {ThemeProvider } from '@mui/material/styles';
 
 import { createTheme } from '@mui/material/styles';
 import { green, purple } from '@mui/material/colors';
+import CustomAppBar from '../components/ResponsiveAppBarLogin'; // Import the AppBar component
+
 
 
 export default function Page() {
@@ -94,7 +95,8 @@ export default function Page() {
   
   return (
     <ThemeProvider theme={theme}>
-    <Container component="main"  maxWidth="xs">
+      <CustomAppBar />
+    <Container component="main"  maxWidth="xs" style={{ marginTop: '80px' }}>
       <CssBaseline />
       <Box
         sx={{
@@ -154,7 +156,7 @@ export default function Page() {
               </Link>
             </Grid>
             <Grid item>
-              <Link href="/register" variant="body2" passHref>
+              <Link href="/register" variant="body2">
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>
