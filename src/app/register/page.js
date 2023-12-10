@@ -81,7 +81,8 @@ export default function Page() {
   The first thing we need to do is prevent the default refresh of the page.
   */
 	const handleSubmit = (event) => {
-    console.log("handling submit");
+		
+		console.log("handling submit");
     event.preventDefault();
     // call out custom validator
     let errorMessage = validateForm(event);
@@ -95,12 +96,16 @@ export default function Page() {
     const data = new FormData(event.currentTarget);
     let email = data.get('email')
     let pass = data.get('pass')
+    let dob = data.get('dob')
     console.log("Sent email:" + email)
     console.log("Sent pass:" + pass)
+    console.log("Sent dob:" + pass)
     console.log("calling db");
+
     runDBCallAsync(`api/register/?email=${email}&pass=${pass}&dob=${dob}`)
-    }// error message if
-    }; // end handler
+
+    }; // end error if
+  }//end handler
 
 
 
