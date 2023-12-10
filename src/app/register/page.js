@@ -98,7 +98,7 @@ export default function Page() {
     console.log("Sent email:" + email)
     console.log("Sent pass:" + pass)
     console.log("calling db");
-    runDBCallAsync(`api/login?email=${email}&pass=${pass}`)
+    runDBCallAsync(`api/register/?email=${email}&pass=${pass}&dob=${dob}`)
     }// error message if
     }; // end handler
 
