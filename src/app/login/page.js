@@ -26,11 +26,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 
 var validator = require("email-validator");
 
-
-
 export default function Page() {
-
-
 
   /*
   This function does the actual work
@@ -129,7 +125,26 @@ export default function Page() {
   // second
   const [errorHolder, setErrorHolder] = React.useState(false);
 
-  
+  const backgroundStyle = {
+    backgroundImage: `url('/backgroundImage.png')`,
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    height: '100vh',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
+    padding: '50px',
+  };
+
+  const whitebg = {
+    backgroundImage: ``,
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    height: '100vh',
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <React.Fragment>
@@ -155,16 +170,17 @@ export default function Page() {
         </Dialog>
         </React.Fragment>
       <CustomAppBar />
-    <Container component="main"  maxWidth="xs" style={{ marginTop: '80px' }}>
-      <CssBaseline />
-      <Box
-        sx={{
-          marginTop: 8,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-        }}
-      >
+      <div style={backgroundStyle}> {}
+        <Container component="main" maxWidth="xs" style={{...whitebg, marginTop: '80px' }}>
+          <CssBaseline />
+          <Box
+            sx={{
+              marginTop: 8,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
         <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
           
         </Avatar>
@@ -224,7 +240,7 @@ export default function Page() {
       </Box>
 
     </Container>
-
+            </div>
     </ThemeProvider>
 
   );

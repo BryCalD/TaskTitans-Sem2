@@ -4,19 +4,30 @@ import { Container, Typography, Button, Grid,  AppBar, Toolbar, } from '@mui/mat
 import CustomAppBar from '../components/ResponsiveAppBarHome'; // Import the AppBar component
 
 const HomePage = () => {
+  const backgroundStyle = {
+    backgroundImage: `url(${'/BackgroundImage.png'})`,
+    backgroundSize: 'cover', 
+    backgroundRepeat: 'no-repeat',
+    height: '100vh',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
+    padding: '50px',
+  };
+
   return (
-    <div>
+    <div style={backgroundStyle}>
       <CustomAppBar />
-      <Container style={{ marginTop: '300px' }}> {/* Adjust the margin top */}
-        <Grid container direction="column" alignItems="center" spacing={2}>
-          <Grid item>
-            <Typography variant="h2" align="center" gutterBottom>
-              TaskTitans
-            </Typography>
-          </Grid>
-          <Grid item>
-          </Grid>
-        </Grid>
+      <Container>
+        <Typography variant="h2" gutterBottom>
+          Task Titans
+        </Typography>
+        <Typography variant="body1" gutterBottom>
+          Master Your Tasks and become a Titan
+        </Typography>
+        {/* Other content */}
       </Container>
     </div>
   );

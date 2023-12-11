@@ -1,5 +1,5 @@
 // components/TaskList.js
-import React from 'react';
+import React from 'react'
 
 const TaskList = ({ tasks, removeTask }) => {
   return (
@@ -7,7 +7,7 @@ const TaskList = ({ tasks, removeTask }) => {
       {tasks.map((task, index) => (
         <li key={index}>
           {task}
-          <button onClick={() => removeTask(index)}>Remove</button>
+          <button onClick={() => removeTask(index)}>Task Complete!</button>
         </li>
       ))}
     </ul>

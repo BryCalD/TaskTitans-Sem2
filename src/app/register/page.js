@@ -132,7 +132,18 @@ setOpen(false);
 // second
 const [errorHolder, setErrorHolder] = React.useState(false);
 
-
+const backgroundStyle = {
+  backgroundImage: `url('/backgroundImage.png')`,
+  backgroundSize: 'cover',
+  backgroundRepeat: 'no-repeat',
+  height: '100vh',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  textAlign: 'center',
+  padding: '50px',
+};
   
   return (
     <ThemeProvider theme={theme}>
@@ -160,6 +171,7 @@ const [errorHolder, setErrorHolder] = React.useState(false);
         </React.Fragment>
 
       <CustomAppBar />
+      <div style={backgroundStyle}> {}
     <Container component="main"  maxWidth="xs" style={{ marginTop: '80px' }}>
       <CssBaseline />
       <Box
@@ -239,7 +251,7 @@ const [errorHolder, setErrorHolder] = React.useState(false);
       </Box>
 
     </Container>
-
+  </div>
     </ThemeProvider>
 
   );
