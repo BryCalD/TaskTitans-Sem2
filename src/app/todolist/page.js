@@ -29,7 +29,7 @@ const Home = () => {
           if (task.timer > 0) {
             const newTimer = task.timer - 1;
             if (newTimer === 0) {
-              setPoints(points => points - 100); // Deduct points when timer runs out
+              setPoints(points => points - 200); // Deduct points when timer runs out
               removeTask(index); // Remove task when timer runs out
             }
             return { ...task, timer: newTimer };
