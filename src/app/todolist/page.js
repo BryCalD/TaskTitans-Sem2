@@ -25,12 +25,11 @@ const Home = () => {
   useEffect(() => {
     const timerInterval = setInterval(() => {
       setTasks(prevTasks => {
-        return prevTasks.map((task, index) => {
-          if (task.timer > 0) {
-            const newTimer = task.timer - 1;
-            if (newTimer === 0) {
-              setPoints(points => points - 200); // Deduct points when timer runs out
-              removeTask(index); // Remove task when timer runs out
+        return prevTasks.map(task => {
+          if (task.timer < task.time) {
+            const newTimer = task.timer + 1; // Increment timer by 1 second
+            if (newTimer === task.time) {
+              completeTask(task.index);
             }
             return { ...task, timer: newTimer };
           }
@@ -40,10 +39,10 @@ const Home = () => {
     }, 1000);
 
     return () => clearInterval(timerInterval);
-  }, [removeTask]);
+  }, [completeTask]);
 
-  const addTask = (task, timer) => {
-    setTasks(prevTasks => [...prevTasks, { task, timer }]);
+  const addTask = (task, time) => {
+    setTasks(prevTasks => [...prevTasks, { task, time, timer: 0, index: prevTasks.length }]);
   };
 
   const backgroundStyle = {
