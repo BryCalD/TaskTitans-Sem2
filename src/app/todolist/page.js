@@ -1,4 +1,3 @@
-// Home.js
 "use client"
 import Container from '@mui/material/Container';
 import React, { useState, useEffect, useCallback } from 'react';
@@ -22,6 +21,11 @@ const Home = () => {
     removeTask(index);
   }, [removeTask]);
 
+  const handleTaskCompletion = (index) => {
+    setPoints(points => points + 200); // Double points when task is completed using the timer
+    removeTask(index);
+  };
+
   useEffect(() => {
     const timerInterval = setInterval(() => {
       setTasks(prevTasks => {
@@ -29,7 +33,7 @@ const Home = () => {
           if (task.timer < task.time) {
             const newTimer = task.timer + 1; // Increment timer by 1 second
             if (newTimer === task.time) {
-              completeTask(task.index);
+              handleTaskCompletion(task.index); // Use the handleTaskCompletion function
             }
             return { ...task, timer: newTimer };
           }
@@ -39,7 +43,7 @@ const Home = () => {
     }, 1000);
 
     return () => clearInterval(timerInterval);
-  }, [completeTask]);
+  }, [handleTaskCompletion]);
 
   const addTask = (task, time) => {
     setTasks(prevTasks => [...prevTasks, { task, time, timer: 0, index: prevTasks.length }]);
