@@ -58,11 +58,6 @@ export default function Page() {
       if(pass.length ==0){
       errorMessage += ' No password added, ';
       }
-      // Validate the dob
-      let dob = data.get('dob')
-      if(dob.length ==0){
-      errorMessage += ' No Date of Birth added, ';
-      }
       // run the validator
       let emailCheck = validator.validate(email);
       // print the status true or false
@@ -96,13 +91,11 @@ export default function Page() {
     const data = new FormData(event.currentTarget);
     let email = data.get('email')
     let pass = data.get('pass')
-    let dob = data.get('dob')
     console.log("Sent email:" + email)
     console.log("Sent pass:" + pass)
-    console.log("Sent dob:" + pass)
     console.log("calling db");
 
-    runDBCallAsync(`api/register/?email=${email}&pass=${pass}&dob=${dob}`)
+    runDBCallAsync(`api/register/?email=${email}&pass=${pass}`)
 
     }; // end error if
   }//end handler
@@ -208,16 +201,6 @@ const backgroundStyle = {
               type="pass"
               id="pass"
               autoComplete="current-password"
-            />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="dob"
-              label="dob"
-              type="text"
-              id="dob"
-              autoComplete=""
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}

@@ -17,7 +17,7 @@ const Home = () => {
   }, []);
 
   const completeTask = useCallback((index) => {
-    setPoints(points => points + 200); // Add points when task is marked complete
+    setPoints(points => points + 400); // Add points when task is marked complete
     removeTask(index);
   }, [removeTask]);
 

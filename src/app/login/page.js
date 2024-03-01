@@ -33,21 +33,23 @@ export default function Page() {
   calling the fetch to get things from the database.
   */ 
   async function runDBCallAsync(url) {
-
-
-    const res = await fetch(url);
-    const data = await res.json();
-
- 
-    if(data.data== "valid"){
-      console.log("login is valid!")
-
+    try {
+      const res = await fetch(url);
+      const data = await res.json();
+  
+      console.log("Response from server:", data);
+  
+      if (data.data === "true") {
+        console.log("Login is valid!");
+      } else {
+        console.log("Login is not valid");
+      }
       
-    } else {
-
-      console.log("not valid  ")
+    } catch (error) {
+      console.error("Error fetching data from server:", error);
     }
   }
+  
 
 
   const validateForm = (event) => {
