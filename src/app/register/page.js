@@ -36,12 +36,16 @@ export default function Page() {
   calling the fetch to get things from the database.
   */ 
   async function runDBCallAsync(url) {
+
     const res = await fetch(url);
     const data = await res.json();
+
     if(data.data== "true"){
-    console.log("registered")
-    } else {
-    console.log("not registered ")
+      console.log("registered")
+      window.location="/login"
+
+    }else {
+      console.log("not registered ")
     }
     }
 
@@ -61,7 +65,7 @@ export default function Page() {
       // run the validator
       let emailCheck = validator.validate(email);
       // print the status true or false
-      console.log("email status" +emailCheck);
+      console.log("email status: " +emailCheck);
       // if it is false, add to the error message.
       if(emailCheck == false){
       errorMessage += 'Incorrect email';

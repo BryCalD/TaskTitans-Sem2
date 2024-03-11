@@ -26,6 +26,7 @@
     "react-dom": "latest",
     "request": "^2.88.2",
     "requests": "^0.3.0",
+    "universal-cookie": "^7.1.0",
     "validator": "^13.11.0"
   }
 }

@@ -71,7 +71,7 @@ export default function Page() {
     // run the validator
     let emailCheck = validator.validate(email);
     // print the status true or false
-    console.log("email status" +emailCheck);
+    console.log("email status: " +emailCheck);
     // if it is false, add to the error message.
     if(emailCheck == false){
     errorMessage += ' Incorrect email';
