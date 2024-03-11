@@ -1,3 +1,5 @@
+import { cookies } from 'next/headers'
+
 export async function GET(req, res) {
     // Make a note we are on
     // the api. This goes to the console.
@@ -27,15 +29,19 @@ export async function GET(req, res) {
     console.log('Found documents =>', findResult);
     let valid = false
   
-    if(findResult.length >0 ){
-    valid = true;
-    console.log("login valid")
-    } else {
-    valid = false;
-    console.log("login invalid")
-    }
-    //==========================================================
-    // at the end of the process we need to send something back.
-    return Response.json({ "data":"" + valid + ""})
+    if(findResult.length >0){
+        valid = true;
+        console.log("login valid")
+        // save a little cookie to say we are authenticated
+        console.log("Saving username and auth status")
+        cookies().set('auth', true);
+        cookies().set('username',email)
+        
+        } else {
+        valid = false;
+        console.log("login invalid")
+        }
+        return Response.json({ "data":"" + valid + ""})
+        
   
     }
