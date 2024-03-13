@@ -115,7 +115,7 @@ const Home = () => {
           backdropFilter: 'blur(10px)',
           border: '3px solid rgba(1, 1, 1, 1)',
           }}>
-          <h1>Current Ta</h1>
+          <h1>Current Tasks</h1>
           {tasks.length > 0 ? (
             <TaskList tasks={tasks} completeTask={completeTask} removeTask={removeTask} />
           ) : (
