@@ -94,12 +94,15 @@ export default function Page() {
     // if we do not get an error
     const data = new FormData(event.currentTarget);
     let email = data.get('email')
+    let nick = data.get('nick')
     let pass = data.get('pass')
+    let points = data.get('points')
     console.log("Sent email:" + email)
+    console.log("Sent nickname:" + nick)
     console.log("Sent pass:" + pass)
     console.log("calling db");
 
-    runDBCallAsync(`api/register/?email=${email}&pass=${pass}`)
+    runDBCallAsync(`api/register/?email=${email}&nick=${nick}&pass=${pass}&points=${points}`)
 
     }; // end error if
   }//end handler
@@ -194,6 +197,16 @@ const backgroundStyle = {
               label="Email Address"
               name="email"
               autoComplete="email"
+              autoFocus
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="nick"
+              label="Nickname"
+              name="nick"
+              autoComplete="nick"
               autoFocus
             />
             <TextField

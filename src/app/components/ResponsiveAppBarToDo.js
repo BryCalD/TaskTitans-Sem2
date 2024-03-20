@@ -70,6 +70,11 @@ const CustomAppBar = () => {
               Home
             </Button>
           </Link>
+          <Link href="/leaderboards">
+            <Button color="warning" style={{ color: '#fff' }}>
+              Leaderboards
+            </Button>
+          </Link>
         </Toolbar>
       </AppBar>
     </div>

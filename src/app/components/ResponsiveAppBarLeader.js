@@ -65,14 +65,9 @@ const CustomAppBar = () => {
               </Button>
             </Link>
           )}
-          <Link href="/todolist">
+          <Link href="/homepage">
             <Button color="warning" style={{ color: '#fff' }}>
-              To Do List
-            </Button>
-          </Link>
-          <Link href="/leaderboards">
-            <Button color="warning" style={{ color: '#fff' }}>
-              Leaderboards
+              Home
             </Button>
           </Link>
         </Toolbar>
