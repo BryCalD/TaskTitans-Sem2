@@ -10,7 +10,10 @@ import CustomAppBar from '../components/ResponsiveAppBarToDo.js';
 const Home = () => {
   const [tasks, setTasks] = useState([]);
   const [points, setPoints] = useState(0);
-
+  //amount of points given when a task is completed
+  const givePoints = 100;
+  
+  // Function to remove a task from the list
   const removeTask = useCallback((index) => {
     setTasks(prevTasks => {
       const updatedTasks = prevTasks.filter((_, i) => i !== index);
@@ -20,12 +23,12 @@ const Home = () => {
 
   // Function to remove a task from the list when it is marked complete and add points to the user when the task is marked complete
   const completeTask = useCallback((index) => {
-    setPoints(points => points + 50); // Add points when task is marked complete
+    setPoints(points => points + givePoints); // Add points when task is marked complete
     removeTask(index);
   }, [removeTask]);
 
   const handleTaskCompletion = (index) => {
-    setPoints(points => points + 200); // Double points when task is completed using the timer
+    setPoints(points => points + givePoints*2); // Double points when task is completed using the timer
     removeTask(index);
   };
 
