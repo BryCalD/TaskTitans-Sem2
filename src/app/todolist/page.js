@@ -1,17 +1,31 @@
 //todolist page.js
 "use client"
 import Container from '@mui/material/Container';
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback} from 'react';
 import TaskList from '../components/TaskList';
 import TaskForm from '../components/TaskForm';
 import CustomAppBar from '../components/ResponsiveAppBarToDo.js';
+import Cookies from 'universal-cookie';
+import Button from '@mui/material/Button';
 
 // Home page for the To Do List app that contains the TaskForm and TaskList components and handles the state of the tasks and points of the user
 const Home = () => {
+  const [username, setUsername] = useState('guest');
   const [tasks, setTasks] = useState([]);
-  const [points, setPoints] = useState(0);
-  //amount of points given when a task is completed
-  const givePoints = 100;
+  const [points, setPoints] = useState(''); // Initialize points state with 0
+
+  useEffect(() => {
+    const cookies = new Cookies();
+    const savedUsername = cookies.get('nick');
+    if (savedUsername) {
+      setUsername(savedUsername);
+    }
+
+    const savedPoints = cookies.get('points');
+    if (savedPoints) {
+      setPoints(savedPoints);
+    }
+  }, []);
   
   // Function to remove a task from the list
   const removeTask = useCallback((index) => {
@@ -21,15 +35,39 @@ const Home = () => {
     });
   }, []);
 
-  // Function to remove a task from the list when it is marked complete and add points to the user when the task is marked complete
+  // Function to update user's points in the database
+  const updateUserPoints = async (username, points) => {
+    try {
+      const response = await fetch('/api/todolist', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, points }),
+      });
+      if (response.ok) {
+        console.log('Points updated successfully');
+      } else {
+        console.error('Failed to update points');
+      }
+    } catch (error) {
+      console.error('Error updating points:', error);
+    }
+  };
+
+  // Function to handle task completion
   const completeTask = useCallback((index) => {
-    setPoints(points => points + givePoints); // Add points when task is marked complete
+    setPoints(points => points + 100); // Add points when task is marked complete
     removeTask(index);
-  }, [removeTask]);
+    // Assuming you have access to username here
+    updateUserPoints(username, points + 100);
+  }, [removeTask, username, points]);
 
   const handleTaskCompletion = (index) => {
-    setPoints(points => points + givePoints*2); // Double points when task is completed using the timer
+    setPoints(points => points + 100*2); // Double points when task is completed using the timer
     removeTask(index);
+    // Assuming you have access to username here
+    updateUserPoints(username, points + 100);
   };
 
   //Function to add a preset 5 minute math task
@@ -99,8 +137,9 @@ const Home = () => {
           border: '3px solid rgba(1, 1, 1, 1)',
         }}>
           
-          <h1>To-Do List</h1>
+          <h1>To-Do List, {username}</h1>
           <p>Points: {points}</p>
+          <button onClick={addMathTask}>Save Points</button>
           <h3>Custom Task</h3>
           <TaskForm addTask={addTask} />
           <br /><br />

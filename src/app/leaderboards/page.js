@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, Typography, Grid } from '@mui/material';
 import CustomAppBar from '../components/ResponsiveAppBarLeader';
 
+
 const HomePage = () => {
   const [leaderboardData, setLeaderboardData] = useState([]);
 
@@ -17,24 +18,26 @@ const HomePage = () => {
       if (!response.ok) {
         throw new Error('Failed to fetch data');
       }
-      const data = await response.json();
+      let data = await response.json();
+      // Sort data by points in descending order
+      data.sort((a, b) => b.points - a.points);
       setLeaderboardData(data);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
   };
 
+  // Styling for the background image
   const backgroundStyle = {
-    backgroundImage: `url(${'/BackgroundImage.png'})`,
+    backgroundImage: `url('/backgroundImage.png')`,
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    height: '100vh',
+    height: '98.2vh',
     display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
     alignItems: 'center',
     textAlign: 'center',
-    padding: '50px',
+    display: 'flex',
+    justifyContent: 'space-around'
   };
 
   return (

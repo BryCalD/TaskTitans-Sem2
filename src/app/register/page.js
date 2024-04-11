@@ -36,18 +36,18 @@ export default function Page() {
   calling the fetch to get things from the database.
   */ 
   async function runDBCallAsync(url) {
-
     const res = await fetch(url);
     const data = await res.json();
 
-    if(data.data== "true"){
-      console.log("registered")
-      window.location="/login"
+    if (data.data === "User registered successfully") {
+        console.log("User registered successfully");
+        window.location = "/login";
+    } else {
+        console.log("Error registering user:", data.data);
+        // Handle error case appropriately, such as displaying an error message to the user
+    }
+}
 
-    }else {
-      console.log("not registered ")
-    }
-    }
 
 
     const validateForm = (event) => {

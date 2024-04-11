@@ -41,12 +41,12 @@ export default function Page() {
   
       console.log("Response from server:", data);
   
-      if (data.data === "true") {
+      if (data.data === true) { // Change this line
         console.log("Login is valid!");
-        window.location="/homepage"
+        window.location="/homepage";
       } else {
         console.log("Login is not valid");
-        window.location="/login"
+        window.location="/login";
       }
       
     } catch (error) {
@@ -87,24 +87,25 @@ export default function Page() {
 	const handleSubmit = (event) => {
     console.log("handling submit");
     event.preventDefault();
-    // call out custom validator
+    // call our custom validator
     let errorMessage = validateForm(event);
-    // save the mesage
-    setErrorHolder(errorMessage)
+    // save the message
+    setErrorHolder(errorMessage);
     // if we have an error
-    if(errorMessage.length > 0){
-    setOpen(true);
+    if (errorMessage.length > 0) {
+        setOpen(true);
     } else {
-    // if we do not get an error
-    const data = new FormData(event.currentTarget);
-    let email = data.get('email')
-    let pass = data.get('pass')
-    console.log("Sent email:" + email)
-    console.log("Sent pass:" + pass)
-    console.log("calling db");
-    runDBCallAsync(`api/login?email=${email}&pass=${pass}`)
-    }// error message if
-    }; // end handler
+        // if we do not get an error
+        const data = new FormData(event.currentTarget);
+        let email = data.get('email');
+        let pass = data.get('pass');
+        console.log("Sent email:" + email);
+        console.log("Sent pass:" + pass);
+        console.log("calling db");
+        runDBCallAsync(`api/login?email=${email}&pass=${pass}`);
+    }
+};
+
 
 
 
@@ -232,8 +233,8 @@ export default function Page() {
 
           <Grid container>
             <Grid item xs>
-              <Link href="#" variant="body2">
-                Forgot password?
+              <Link href="/forgotpass" variant="body2">
+              {"Forgot password?"}
               </Link>
             </Grid>
             <Grid item>

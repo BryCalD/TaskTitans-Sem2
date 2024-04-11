@@ -28,6 +28,8 @@ const CustomAppBar = () => {
     // Clear username cookie and reset state
     const cookies = new Cookies();
     cookies.remove('username');
+    cookies.remove('nick');
+    cookies.remove('points');
     setUsername('');
     handleMenuClose();
   };
