@@ -44,7 +44,6 @@ const Home = () => {
 
       if (data.data == true) {
         console.log("Points updated successfully!");
-        window.location.reload(); //reload the page after successful points update
       } else {
         console.log("Updating Points Unseccessful");
       }
