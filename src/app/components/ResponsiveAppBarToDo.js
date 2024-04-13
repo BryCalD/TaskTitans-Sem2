@@ -32,6 +32,9 @@ const CustomAppBar = () => {
     cookies.remove('points');
     setUsername('');
     handleMenuClose();
+
+    // Reload the page
+    window.location.reload();
   };
 
   return (

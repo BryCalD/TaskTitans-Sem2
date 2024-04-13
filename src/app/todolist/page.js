@@ -13,9 +13,9 @@ const Home = () => {
   const [username, setUsername] = useState('guest');
   const [tasks, setTasks] = useState([]);
   const [points, setPoints] = useState(''); // Initialize points state with 0
+  const cookies = new Cookies();
 
   useEffect(() => {
-    const cookies = new Cookies();
     const savedUsername = cookies.get('nick');
     if (savedUsername) {
       setUsername(savedUsername);
@@ -35,32 +35,35 @@ const Home = () => {
     });
   }, []);
 
-  // Function to update user's points in the database
-  const updateUserPoints = async (username, points) => {
+  async function runDBCallAsync(url) {
     try {
-      const response = await fetch('/api/todolist', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ username, points }),
-      });
-      if (response.ok) {
-        console.log('Points updated successfully');
+      const res = await fetch(url);
+      const data = await res.json();
+
+      console.log("Response from server:", data);
+
+      if (data.data == true) {
+        console.log("Points updated successfully!");
+        window.location.reload(); //reload the page after successful points update
       } else {
-        console.error('Failed to update points');
+        console.log("Updating Points Unseccessful");
       }
+
     } catch (error) {
-      console.error('Error updating points:', error);
+      console.error("Error fetching data from server:", error);
     }
+  }
+
+  const savePoints = async () => {
+    const email = cookies.get('username');
+
+    runDBCallAsync(`/api/todolist?email=${email}&newPoints=${points}`);
   };
 
   // Function to handle task completion
   const completeTask = useCallback((index) => {
     setPoints(points => points + 100); // Add points when task is marked complete
     removeTask(index);
-    // Assuming you have access to username here
-    updateUserPoints(username, points + 100);
   }, [removeTask, username, points]);
 
   const handleTaskCompletion = (index) => {
@@ -139,7 +142,7 @@ const Home = () => {
           
           <h1>To-Do List, {username}</h1>
           <p>Points: {points}</p>
-          <button onClick={addMathTask}>Save Points</button>
+          <button onClick={savePoints}>Save Points</button>
           <h3>Custom Task</h3>
           <TaskForm addTask={addTask} />
           <br /><br />

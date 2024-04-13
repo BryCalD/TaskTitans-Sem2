@@ -3,12 +3,18 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Typography, Grid } from '@mui/material';
 import CustomAppBar from '../components/ResponsiveAppBarLeader';
+import Cookies from 'universal-cookie';
 
 
 const HomePage = () => {
   const [leaderboardData, setLeaderboardData] = useState([]);
+  const cookies = new Cookies();
 
   useEffect(() => {
+    const savedUsername = cookies.get('nick');
+    if (savedUsername) {
+      setUsername(savedUsername);
+    }
     fetchLeaderboardData();
   }, []);
 
@@ -54,7 +60,7 @@ const HomePage = () => {
           {leaderboardData.map((item, index) => (
             <React.Fragment key={index}>
               <Grid item xs={6}>
-                <Typography variant="body1">{item.username}</Typography>
+                <Typography variant="body1">{item.nick}</Typography>
               </Grid>
               <Grid item xs={6}>
                 <Typography variant="body1">{item.points}</Typography>
