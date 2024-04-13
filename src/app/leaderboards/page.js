@@ -8,13 +8,8 @@ import Cookies from 'universal-cookie';
 
 const HomePage = () => {
   const [leaderboardData, setLeaderboardData] = useState([]);
-  const cookies = new Cookies();
 
   useEffect(() => {
-    const savedUsername = cookies.get('nick');
-    if (savedUsername) {
-      setUsername(savedUsername);
-    }
     fetchLeaderboardData();
   }, []);
 
