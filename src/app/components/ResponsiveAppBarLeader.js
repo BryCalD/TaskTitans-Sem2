@@ -38,7 +38,7 @@ const CustomAppBar = () => {
     <div>
       <AppBar>
         <Toolbar>
-          <Avatar alt="User Avatar" />
+        <Avatar alt="TaskTitan" src="\..\..\tasktitans-removebg-preview (1).png" sx={{ width: 80, height: 80 }} />
           {username ? (
             <div>
               <Button
@@ -67,7 +67,7 @@ const CustomAppBar = () => {
               </Button>
             </Link>
           )}
-          <Link href="/homepage">
+          <Link href="/..">
             <Button color="warning" style={{ color: '#fff' }}>
               Home
             </Button>

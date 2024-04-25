@@ -36,21 +36,28 @@ const CustomAppBar = () => {
 
   return (
     <div>
+      <style jsx>{`
+        .hover-darken:hover {
+          background-color: #0012b5;
+        }
+      `}</style>
       <AppBar>
         <Toolbar>
-          <Avatar alt="User Avatar" />
+          <Avatar alt="TaskTitan" src="\..\..\tasktitans-removebg-preview (1).png" sx={{ width: 80, height: 80 }} />
           {username ? (
             <div>
               <Button
+                className="hover-darken" 
                 aria-controls="menu"
                 aria-haspopup="true"
                 onClick={handleMenuOpen}
                 color="inherit"
-                style={{ color: '#fff', marginLeft: '10px' }}
+                style={{ color: '#fff', marginLeft: '10px', transition: 'background-color 0.3s ease' }}
               >
                 {username}
               </Button>
               <Menu
+                className="hover-darken" 
                 id="menu"
                 anchorEl={anchorEl}
                 keepMounted
@@ -62,18 +69,20 @@ const CustomAppBar = () => {
             </div>
           ) : (
             <Link href="/login">
-              <Button color="warning" style={{ color: '#fff', marginLeft: '10px' }}>
+              <Button color="warning" className="hover-darken" style={{ color: '#fff', marginLeft: '10px', transition: 'background-color 0.3s ease' }}>
                 Login
               </Button>
+              
             </Link>
           )}
           <Link href="/todolist">
-            <Button color="warning" style={{ color: '#fff' }}>
+            
+            <Button color="warning" className="hover-darken" style={{ color: '#fff', transition: 'background-color 0.3s ease' }}>
               To Do List
             </Button>
           </Link>
           <Link href="/leaderboards">
-            <Button color="warning" style={{ color: '#fff' }}>
+            <Button color="warning" className="hover-darken" style={{ color: '#fff', transition: 'background-color 0.3s ease' }}>
               Leaderboards
             </Button>
           </Link>

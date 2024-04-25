@@ -5,16 +5,18 @@ import CustomAppBar from './components/ResponsiveAppBarHome'; // Import the AppB
 
 const HomePage = () => {
   const backgroundStyle = {
-    backgroundImage: `url(${'/BackgroundImage.png'})`,
+    backgroundImage: `url(${'/HomePageBG.png'})`,
     backgroundSize: 'cover', 
     backgroundRepeat: 'no-repeat',
     height: '100vh',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center',
-    textAlign: 'center',
+    alignItems: 'left',
+    textAlign: 'ledf',
     padding: '50px',
+    margin: '-8px',
+    overflow: 'hidden',
   };
 
   return (
@@ -23,11 +25,12 @@ const HomePage = () => {
       <Container>
         <Typography variant="h2" gutterBottom>
           Task Titans
+          <hr/>
         </Typography>
         <Typography variant="body1" gutterBottom>
           Master Your Tasks and become a Titan
         </Typography>
-        {/* Other content */}
+       
       </Container>
     </div>
   );
