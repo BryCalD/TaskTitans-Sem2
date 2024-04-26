@@ -1,4 +1,5 @@
 import { cookies } from 'next/headers'
+
 export async function GET(req, res) {
     // Make a note we are on
     // the api. This goes to the console.
@@ -33,11 +34,14 @@ export async function GET(req, res) {
         points = findResult[0].points; // Assuming points are stored in the database
         console.log("login valid");
         // save a little cookie to say we are authenticated
-        console.log("Saving username and auth status")
+        console.log("Saving username and auth status");
         cookies().set('auth', true);
-        cookies().set('username',email)
-        cookies().set('nick',nick)
-        cookies().set('points',points)
+        cookies().set('username', email);
+        cookies().set('nick', nick);
+        cookies().set('points', points);
+        // Now, let's create a cookie for 'class'
+        const userClass = findResult[0].class; // Assuming class is stored in the database
+        cookies().set('class', userClass);
     } else {
         valid = false;
         console.log("login invalid");

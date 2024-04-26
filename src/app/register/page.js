@@ -57,11 +57,25 @@ export default function Page() {
       let email = data.get('email')
       // pull in the validator
       var validator = require("email-validator");
+
+      // Validate the nickname
+      let nick = data.get('nick')
+      if(nick.length ==0){
+      errorMessage += ' No nickname added, ';
+      }
+      
       // Validate the password
       let pass = data.get('pass')
       if(pass.length ==0){
       errorMessage += ' No password added, ';
       }
+
+      // Validate the class
+      let userClass = data.get('class')
+      if(userClass.length ==0){
+      errorMessage += ' No class added, ';
+      }
+      
       // run the validator
       let emailCheck = validator.validate(email);
       // print the status true or false
@@ -97,12 +111,13 @@ export default function Page() {
     let nick = data.get('nick')
     let pass = data.get('pass')
     let points = data.get('points')
+    let userClass = data.get('class')
     console.log("Sent email:" + email)
     console.log("Sent nickname:" + nick)
     console.log("Sent pass:" + pass)
     console.log("calling db");
 
-    runDBCallAsync(`api/register/?email=${email}&nick=${nick}&pass=${pass}&points=${points}`)
+    runDBCallAsync(`api/register/?email=${email}&nick=${nick}&pass=${pass}&points=${points}&class=${userClass}`)
 
     }; // end error if
   }//end handler
@@ -218,6 +233,16 @@ const backgroundStyle = {
               type="pass"
               id="pass"
               autoComplete="current-password"
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="class"
+              label="Class"
+              type="class"
+              id="class"
+              autoComplete="current-class"
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}

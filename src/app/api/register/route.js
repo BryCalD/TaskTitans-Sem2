@@ -8,6 +8,7 @@ export async function GET(req, res) {
   const nick = searchParams.get('nick');
   const pass = searchParams.get('pass');
   const points = "100"; // Initialize points to 1 for new users
+  const userClass = searchParams.get('class'); // Retrieve class parameter
 
   // Connect to MongoDB
   const { MongoClient } = require('mongodb');
@@ -27,7 +28,8 @@ export async function GET(req, res) {
       "username": email,
       "pass": pass,
       "nick": nick,
-      "points": points
+      "points": points,
+      "class": userClass // Include class in the inserted document
     });
 
     console.log('User registered successfully');
