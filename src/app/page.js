@@ -30,7 +30,7 @@ const HomePage = () => {
     textAlign: 'left',
     padding: '50px',
     margin: '-8px',
-    overflow: 'hidden',
+    overflow: 'show',
   };
   const titleStyle = {
     color: 'White',
@@ -43,7 +43,7 @@ const HomePage = () => {
   const subtitleStyle = {
     color: '#fff',
     fontSize: '50px',
-    maxWidth: '600px',
+    maxWidth: '90%',
     lineHeight: '1.5',
     fontFamily: 'Impact, sans-serif',
     marginTop: '-190px',

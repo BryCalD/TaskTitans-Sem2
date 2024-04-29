@@ -10,7 +10,7 @@ import Button from '@mui/material/Button';
 
 // Home page for the To Do List app that contains the TaskForm and TaskList components and handles the state of the tasks and points of the user
 const Home = () => {
-  const [username, setUsername] = useState('guest');
+  const [username, setUsername] = useState('Guest');
   const [tasks, setTasks] = useState([]);
   const [points, setPoints] = useState(''); // Initialize points state with 0
   const cookies = new Cookies();
@@ -112,13 +112,15 @@ const Home = () => {
   };
   // Styling for the background image
   const backgroundStyle = {
-    backgroundImage: `url('/backgroundImage.png')`,
+    backgroundImage: `url('/ToDoBG.jpg')`,
     backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-    height: '98.2vh',
+    backgroundRepeat: 'repeat',
+    margin: '-8px',
+    height: '100vh',
+    length: '100vh',
     display: 'flex',
     alignItems: 'center',
-    textAlign: 'center',
+    textAlign: 'left',
     display: 'flex',
     justifyContent: 'space-around'
   };
@@ -129,18 +131,21 @@ const Home = () => {
       <div style={ backgroundStyle}>
         {/* Styling for the to do list */}
         <Container component="main" maxWidth="xs" style={{ 
-          marginTop: '10px',
+          marginTop: '1px',
           backgroundColor: 'rgba(0, 0, 0, 0.3)',
           borderRadius: '50px', 
           padding: '100px',
-          paddingleft: '100px',
-          paddingRight: '100px',
-          backdropFilter: 'blur(10px)',
-          border: '3px solid rgba(1, 1, 1, 1)',
+          paddingTop: '0px',
+          paddingleft: '1em',
+          paddingRight: '1em',
+          backdropFilter: 'blur(2px)',
+          border: '3px solid white',
         }}>
           
-          <h1>To-Do List, {username}</h1>
-          <p>Points: {points}</p>
+          <h1 style={{color: 'white', fontFamily: 'Impact, sans-serif', fontSize: '4em'}}>To-Do List <br/> {username}</h1>
+          <hr style={{backgroundColor: 'White', width: '16em', height: '5px', margin: '-10px'}}/>
+
+          <p style={{fontSize: '1.3em', fontFamily: 'Tahoma, sans-serif', color:'white'}}>{username}!! Make sure to save your<br/>Points: </p><p style={{fontFamily:'impact, sans-serif', fontSize:'1em'}}>{points}</p>
           <button onClick={savePoints}>Save Points</button>
           <h3>Custom Task</h3>
           <TaskForm addTask={addTask} />

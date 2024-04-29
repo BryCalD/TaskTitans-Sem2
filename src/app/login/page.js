@@ -133,8 +133,8 @@ export default function Page() {
   const [errorHolder, setErrorHolder] = React.useState(false);
 
   const backgroundStyle = {
-    backgroundImage: `url('/backgroundImage.png')`,
-    backgroundSize: 'cover',
+    backgroundImage: `url(${'/LogRegBG.png'})`,
+    backgroundSize: 'cover', 
     backgroundRepeat: 'no-repeat',
     height: '100vh',
     display: 'flex',
@@ -152,7 +152,19 @@ export default function Page() {
     height: '100vh',
   }
 
+  const loginStyle = {
+    marginTop: '10px',
+    borderRadius: '50px', 
+    padding: '100px',
+    paddingleft: '100px',
+    paddingRight: '100px',
+    backdropFilter: 'blur(10px)',
+    border: '3px solid rgba(1, 1, 1, 1)',
+    backgroundColor: 'rgba(0, 0, 0, 0.3)',
+  };
+
   return (
+    
     <ThemeProvider theme={theme}>
       <React.Fragment>
         <Dialog
@@ -188,7 +200,8 @@ export default function Page() {
               alignItems: 'center',
             }}
           >
-        <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+            
+        <Avatar sx={{ m: 1, bgcolor: '#eed70b' }}>
           
         </Avatar>
         <Typography component="h1" variant="h5">
@@ -244,8 +257,7 @@ export default function Page() {
             </Grid>
           </Grid>
         </Box>
-      </Box>
-
+          </Box>
     </Container>
             </div>
     </ThemeProvider>
