@@ -192,6 +192,7 @@ export default function Page() {
       <div style={backgroundStyle}> {}
         <Container component="main" maxWidth="xs" style={{...whitebg, marginTop: '80px' }}>
           <CssBaseline />
+          <div style={loginStyle}> {}
           <Box
             sx={{
               marginTop: 8,
@@ -200,7 +201,7 @@ export default function Page() {
               alignItems: 'center',
             }}
           >
-            
+
         <Avatar sx={{ m: 1, bgcolor: '#eed70b' }}>
           
         </Avatar>
@@ -222,10 +223,10 @@ export default function Page() {
             margin="normal"
             required
             fullWidth
-            name="pass"
-            label="Pass"
-            type="pass"
-            id="pass"
+            name="password"
+            label="password"
+            type="password"
+            id="password"
             autoComplete="current-password"
           />
           <Button
@@ -254,6 +255,7 @@ export default function Page() {
           </Grid>
         </Box>
           </Box>
+          </div>
     </Container>
             </div>
     </ThemeProvider>

@@ -119,6 +119,7 @@ const Home = () => {
     backgroundRepeat: 'repeat',
     margin: '-8px',
     height: '100vh',
+
     display: 'flex',
     alignItems: 'center',
     textAlign: 'left',
