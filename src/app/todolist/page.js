@@ -68,23 +68,21 @@ const Home = () => {
   const handleTaskCompletion = (index) => {
     setPoints(points => points + 100*2); // Double points when task is completed using the timer
     removeTask(index);
-    // Assuming you have access to username here
-    updateUserPoints(username, points + 100);
   };
 
-  //Function to add a preset 5 minute math task
+  //Function to add a preset 4 minute math task
   const addMathTask = () => {
-    addTask('Math', 300);
+    addTask('Math', 240);
   };
 
-  //Function to add a preset 10 minute reading task
+  //Function to add a preset 5 minute reading task
   const addReadingTask = () => {
-    addTask('Reading', 600);
+    addTask('Reading', 300);
   };
 
-  //Function to add a preset 15 minute writing task
+  //Function to add a preset 8 minute writing task
   const addWritingTask = () => {
-    addTask('Writing', 900);
+    addTask('Writing', 480);
   };
 
   // Function to increment the timer of each task by 1 second and call the handleTaskCompletion function when the timer reaches the time of the task
@@ -117,7 +115,6 @@ const Home = () => {
     backgroundRepeat: 'repeat',
     margin: '-8px',
     height: '100vh',
-    length: '100vh',
     display: 'flex',
     alignItems: 'center',
     textAlign: 'left',
@@ -150,11 +147,11 @@ const Home = () => {
           <h3>Custom Task</h3>
           <TaskForm addTask={addTask} />
           <br /><br />
-          <button onClick={addMathTask}>Start 5-minute Math Task</button>
+          <button onClick={addMathTask}>Start 4-minute Math Task</button>
           <br /><br />
-          <button onClick={addReadingTask}>Start 10-minute Reading Task</button>
+          <button onClick={addReadingTask}>Start 5-minute Reading Task</button>
           <br /><br />
-          <button onClick={addWritingTask}>Start 15-minute Writing Task</button>
+          <button onClick={addWritingTask}>Start 8-minute Writing Task</button>
         </Container>
         <Container component="main" maxWidth="xs" style={{ 
           marginTop: '10px',
