@@ -159,11 +159,10 @@ const Home = () => {
         </Container>
         <Container component="main" maxWidth="xs" style={{ 
           marginTop: '10px',
-          backgroundColor: 'rgba(0, 0, 0, 0.3)',
+          backgroundColor: 'white',
           borderRadius: '50px', 
           padding: '100px',
-          backdropFilter: 'blur(10px)',
-          border: '3px solid rgba(1, 1, 1, 1)',
+          border: '3px solid blue',
           }}>
           <h1>Current Tasks</h1>
           {tasks.length > 0 ? (

@@ -43,7 +43,7 @@ export default function Page() {
   
       if (data.data === true) { // Change this line
         console.log("Login is valid!");
-        window.location="/homepage";
+        window.location="/..";
       } else {
         console.log("Login is not valid");
         window.location="/login";
@@ -153,14 +153,14 @@ export default function Page() {
   }
 
   const loginStyle = {
-    marginTop: '10px',
+    marginTop: '1px',
     borderRadius: '50px', 
     padding: '100px',
     paddingleft: '100px',
     paddingRight: '100px',
     backdropFilter: 'blur(10px)',
     border: '3px solid rgba(1, 1, 1, 1)',
-    backgroundColor: 'rgba(0, 0, 0, 0.3)',
+    backgroundColor: 'white',
   };
 
   return (
@@ -223,10 +223,10 @@ export default function Page() {
             margin="normal"
             required
             fullWidth
-            name="password"
-            label="password"
+            name="pass"
+            label="pass"
             type="password"
-            id="password"
+            id="pass"
             autoComplete="current-password"
           />
           <Button
