@@ -20,10 +20,10 @@ const Home = () => {
     if (savedUsername) {
       setUsername(savedUsername);
     }
-
+  
     const savedPoints = cookies.get('points');
     if (savedPoints) {
-      setPoints(savedPoints);
+      setPoints(parseInt(savedPoints)); // Parse points to ensure it's a number
     }
   }, []);
   
@@ -44,6 +44,9 @@ const Home = () => {
 
       if (data.data == true) {
         console.log("Points updated successfully!");
+
+        // Update local state
+        cookies.set('points', points, { path: '/' }); // Save points to cookies
       } else {
         console.log("Updating Points Unseccessful");
       }
@@ -68,8 +71,6 @@ const Home = () => {
   const handleTaskCompletion = (index) => {
     setPoints(points => points + 100*2); // Double points when task is completed using the timer
     removeTask(index);
-    // Assuming you have access to username here
-    updateUserPoints(username, points + 100);
   };
 
   //Function to add a preset 5 minute math task
@@ -117,7 +118,7 @@ const Home = () => {
     backgroundRepeat: 'repeat',
     margin: '-8px',
     height: '100vh',
-    length: '100vh',
+    //length: '100vh',
     display: 'flex',
     alignItems: 'center',
     textAlign: 'left',
