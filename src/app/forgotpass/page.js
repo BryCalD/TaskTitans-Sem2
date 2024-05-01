@@ -35,8 +35,8 @@ export default function Page() {
   const [errorHolder, setErrorHolder] = React.useState("");
 
   const backgroundStyle = {
-    backgroundImage: `url('/backgroundImage.png')`,
-    backgroundSize: 'cover',
+    backgroundImage: `url(${'/LogRegBG.png'})`,
+    backgroundSize: 'cover', 
     backgroundRepeat: 'no-repeat',
     height: '100vh',
     display: 'flex',
@@ -52,6 +52,19 @@ export default function Page() {
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     height: '100vh',
+  }
+
+  const loginStyle = {
+    backgroundColor: 'rgba(200, 200, 200, 0.8)',
+    borderRadius: '50px', 
+    paddingTop: '1em',
+    paddingleft: '1em',
+    paddingBottom: '4em',
+    paddingRight: '1em',
+    margin: '-10em',
+    marginTop: '6em',
+    backdropFilter: 'blur(2px)',
+    border: '3px solid #1976d2',
   };
 
   async function runDBCallAsync(url) {
@@ -109,6 +122,7 @@ export default function Page() {
       <div style={backgroundStyle}>
         <Container component="main" maxWidth="xs" style={{ ...whitebg, marginTop: '80px' }}>
           <CssBaseline />
+          <div style={loginStyle}> {}
           <Box
             sx={{
               marginTop: 8,
@@ -117,8 +131,9 @@ export default function Page() {
               alignItems: 'center',
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            </Avatar>
+            <Avatar src="\..\..\titan.png"sx={{ width: 80, height: 80 }}>
+          
+          </Avatar>
             <Typography component="h1" variant="h5">
               Forgot Password
             </Typography>
@@ -152,11 +167,6 @@ export default function Page() {
                 Reset Password
               </Button>
               <Grid container>
-                <Grid item xs>
-                  <Link href="/login" variant="body2">
-                    {"Remember your password? Login"}
-                  </Link>
-                </Grid>
                 <Grid item>
                   <Link href="/register" variant="body2">
                     {"Don't have an account? Sign Up"}
@@ -165,6 +175,7 @@ export default function Page() {
               </Grid>
             </Box>
           </Box>
+          </div>
         </Container>
       </div>
     </ThemeProvider>

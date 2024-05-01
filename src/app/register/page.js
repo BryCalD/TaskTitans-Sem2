@@ -10,6 +10,7 @@ import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 
+
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import {ThemeProvider } from '@mui/material/styles';
@@ -148,8 +149,8 @@ setOpen(false);
 const [errorHolder, setErrorHolder] = React.useState(false);
 
 const backgroundStyle = {
-  backgroundImage: `url('/backgroundImage.png')`,
-  backgroundSize: 'cover',
+  backgroundImage: `url(${'/LogRegBG.png'})`,
+  backgroundSize: 'cover', 
   backgroundRepeat: 'no-repeat',
   height: '100vh',
   display: 'flex',
@@ -158,6 +159,27 @@ const backgroundStyle = {
   alignItems: 'center',
   textAlign: 'center',
   padding: '50px',
+};
+
+const whitebg = {
+  backgroundImage: ``,
+  backgroundSize: 'cover',
+  backgroundRepeat: 'no-repeat',
+  height: '100vh',
+}
+
+const loginStyle = {
+  backgroundColor: 'rgba(200, 200, 200, 0.8)',
+  borderRadius: '50px', 
+  paddingTop: '1em',
+  paddingleft: '1em',
+  paddingBottom: '4em',
+  paddingRight: '1em',
+  margin: '-4em',
+  
+  marginTop: '1em',
+  backdropFilter: 'blur(2px)',
+  border: '3px solid #1976d2',
 };
   
   return (
@@ -189,6 +211,7 @@ const backgroundStyle = {
       <div style={backgroundStyle}> {}
     <Container component="main"  maxWidth="xs" style={{ marginTop: '80px' }}>
       <CssBaseline />
+      <div style={loginStyle}> {}
       <Box
         sx={{
           marginTop: 8,
@@ -197,13 +220,13 @@ const backgroundStyle = {
           alignItems: 'center',
         }}
       >
-        <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+        <Avatar src="\..\..\titan.png"sx={{ width: 80, height: 80 }}>
           
         </Avatar>
         <Typography component="h1" variant="h5">
-          Register
+          Good choice! Register here Titan. <hr></hr>
         </Typography>
-        <Box component="form" onSubmit={handleSubmit} noValidate sx={{mt: 1 }}>
+        <Box component="form" onSubmit={handleSubmit} noValidate sx={{m: 1 , ml: 3}}>
             <TextField
               margin="normal"
               required
@@ -229,8 +252,8 @@ const backgroundStyle = {
               required
               fullWidth
               name="pass"
-              label="Pass"
-              type="pass"
+              label="Password"
+              type="password"
               id="pass"
               autoComplete="current-password"
             />
@@ -243,10 +266,6 @@ const backgroundStyle = {
               type="class"
               id="class"
               autoComplete="current-class"
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
             />
             <Button
               type="submit"
@@ -261,11 +280,6 @@ const backgroundStyle = {
 
 
           <Grid container>
-            <Grid item xs>
-              <Link href="#" variant="body2">
-                Forgot password?
-              </Link>
-            </Grid>
             <Grid item>
               <Link href="/login" variant="body2">
                 {"Have an account? Sign In"}
@@ -274,6 +288,7 @@ const backgroundStyle = {
           </Grid>
         </Box>
       </Box>
+      </div>
 
     </Container>
   </div>

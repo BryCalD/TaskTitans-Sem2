@@ -121,7 +121,7 @@ const Home = () => {
     height: '100vh',
     display: 'flex',
     alignItems: 'center',
-    textAlign: 'left',
+    textAlign: 'center',
     display: 'flex',
     justifyContent: 'space-around'
   };
@@ -133,21 +133,21 @@ const Home = () => {
         {/* Styling for the to do list */}
         <Container component="main" maxWidth="xs" style={{ 
           marginTop: '1px',
-          backgroundColor: 'rgba(0, 0, 0, 0.3)',
+          backgroundColor: 'rgba(150, 150, 150, 0.3)',
           borderRadius: '50px', 
-          padding: '100px',
           paddingTop: '0px',
           paddingleft: '1em',
+          paddingBottom: '1em',
           paddingRight: '1em',
           backdropFilter: 'blur(2px)',
-          border: '3px solid white',
+          border: '3px solid #1976d2',
         }}>
           
-          <h1 style={{color: 'white', fontFamily: 'Impact, sans-serif', fontSize: '4em'}}>To-Do List <br/> {username}</h1>
-          <hr style={{backgroundColor: 'White', width: '16em', height: '5px', margin: '-10px'}}/>
+          <h1 style={{color: 'white', fontFamily: 'Cascadia Mono, sans-serif', fontSize: '3em'}}>{username}'s <br/>To-Do List</h1>
+          <hr style={{backgroundColor: '#1976d2', width: '25.5em', height: '5px', margin: '-10px'}}/>
 
-          <p style={{fontSize: '1.3em', fontFamily: 'Tahoma, sans-serif', color:'white'}}>{username}!! Make sure to save your<br/>Points: </p><p style={{fontFamily:'impact, sans-serif', fontSize:'1em'}}>{points}</p>
-          <button onClick={savePoints}>Save Points</button>
+          <p style={{fontSize: '1.3em', fontFamily: 'Cascadia Code, sans-serif', color:'white'}}>{username}! Make sure to save your points </p><p style={{fontFamily:'impact, sans-serif', fontSize:'2.5em', color: '#1976d2', border:'3px solid #1976d2', backgroundColor: 'white', margin: '1em'}}>{points}</p>
+          <button onClick={savePoints} style={{color: '#1976d2', backgroundColor: 'white',borderRadius: '5px', blockSize: '3em', fontSize: '1em' }}>Save Points</button>
           <h3>Custom Task</h3>
           <TaskForm addTask={addTask} />
           <br /><br />
@@ -158,11 +158,15 @@ const Home = () => {
           <button onClick={addWritingTask}>Start 8-minute Writing Task</button>
         </Container>
         <Container component="main" maxWidth="xs" style={{ 
-          marginTop: '10px',
-          backgroundColor: 'white',
+          marginTop: '1px',
+          backgroundColor: 'rgba(150, 150, 150, 0.3)',
           borderRadius: '50px', 
-          padding: '100px',
-          border: '3px solid blue',
+          paddingTop: '0px',
+          paddingleft: '1em',
+          paddingBottom: '1em',
+          paddingRight: '1em',
+          backdropFilter: 'blur(2px)',
+          border: '3px solid #1976d2',
           }}>
           <h1>Current Tasks</h1>
           {tasks.length > 0 ? (

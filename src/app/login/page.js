@@ -153,14 +153,16 @@ export default function Page() {
   }
 
   const loginStyle = {
-    marginTop: '1px',
+    backgroundColor: 'rgba(200, 200, 200, 0.8)',
     borderRadius: '50px', 
-    padding: '100px',
-    paddingleft: '100px',
-    paddingRight: '100px',
-    backdropFilter: 'blur(10px)',
-    border: '3px solid rgba(1, 1, 1, 1)',
-    backgroundColor: 'white',
+    paddingTop: '1em',
+    paddingleft: '1em',
+    paddingBottom: '4em',
+    paddingRight: '1em',
+    margin: '-10em',
+    marginTop: '6em',
+    backdropFilter: 'blur(2px)',
+    border: '3px solid #1976d2',
   };
 
   return (
@@ -202,11 +204,12 @@ export default function Page() {
             }}
           >
 
-        <Avatar sx={{ m: 1, bgcolor: '#eed70b' }}>
+        <Avatar src="\..\..\titan.png"sx={{ width: 80, height: 80 }}>
           
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign in
+          Let's get you signed in, Titan! 
+          <hr/>
         </Typography>
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
           <TextField
@@ -224,12 +227,12 @@ export default function Page() {
             required
             fullWidth
             name="pass"
-            label="pass"
+            label="Password"
             type="password"
             id="pass"
             autoComplete="current-password"
           />
-          <Button
+          <Button 
             type="submit"
             fullWidth
             variant="contained"
