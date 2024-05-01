@@ -27,6 +27,10 @@ const Home = () => {
       setPoints(parseInt(savedPoints)); // Parse points to ensure it's a number
     }
   }, []);
+
+  useEffect(() => {
+    cookies.set('points', points, { path: '/' }); // Save points to cookies
+  }, [points]);
   
   // Function to remove a task from the list
   const removeTask = useCallback((index) => {
