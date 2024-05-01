@@ -64,17 +64,19 @@ const HomePage = () => {
           Welcome to Task Titans!
         </Typography>
         <Typography variant="body1" gutterBottom>
-        <br/><br/>
+        <br/>
           <h1 style={{color: 'white'}}>Master Your Tasks and become a Titan!</h1><br/>
           <hr style={{width: '700px', margin: '-10px' }}/>
           <br/>
-           This app is designed to help you manage your tasks and time effectively.
+          <br/>
+          Hey there!<br/>
+           Are you ready to turn everyday tasks into exciting adventures?<br/> Imagine a world where homework assignments, chores, and fun activities are all <br/>neatly organized in one colorful place. Our fantastic new productivity app is designed<br/> just for Titans like you! With delightful graphics, interactive features, and easy-to-use <br/>controls, staying on top of your daily responsibilities has never been more fun.<br/> Plus, earn points and climb the board and see who is the best Task Titan!
            <br/> Please enjoy the app and let us know if you have any feedback!
         </Typography>
         <Typography>
-          
+          <br/>
           <Link href="/todolist" passHref>
-            <Button variant="contained" color="primary" style={{ marginTop: '30px' }}>
+            <Button variant="contained" color="primary" style={{ marginTop: '30px', fontSize: '1.2em' }}>
             {username}!
             <br/>
               Lets Do Some Tasks!

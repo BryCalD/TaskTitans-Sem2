@@ -38,23 +38,34 @@ const HomePage = () => {
 
   // Styling for the background image
   const backgroundStyle = {
-    backgroundImage: `url('/backgroundImage.png')`,
+    backgroundImage: `url('/ABG.jpg')`,
     backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-    height: '98.2vh',
-    display: 'flex',
+    height: '100vh',
+    margin: '-8px',
+    marginTop: '5em',
+    padding: '5em',
     alignItems: 'center',
     textAlign: 'center',
-    display: 'flex',
-    justifyContent: 'space-around'
   };
 
   return (
     <div style={backgroundStyle}>
       <CustomAppBar />
-      <Container>
+      <Container component="main" style={{ 
+          marginTop: '1px',
+          backgroundColor: 'rgba(150, 150, 150, 0.3)',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'repeat',
+          borderRadius: '50px', 
+          paddingTop: '30px',
+          paddingleft: '2em',
+          paddingBottom: '5em',
+          paddingRight: '1em',
+          backdropFilter: 'blur(2px)',
+          border: '3px solid #1976d2',
+        }}>
         {/* Add class filter dropdown */}
-        <FormControl sx={{ m: 1, minWidth: 120 }}>
+        <FormControl sx={{ m: 1, minWidth: 200 }}>
           <InputLabel id="class-filter-label">Filter by Class</InputLabel>
           <Select
             labelId="class-filter-label"
@@ -67,33 +78,36 @@ const HomePage = () => {
             <MenuItem value="2">Class 2</MenuItem>
             <MenuItem value="3">Class 3</MenuItem>
             <MenuItem value="4">Class 4</MenuItem>
+            <MenuItem value="5">Class 5</MenuItem>
+            <MenuItem value="6">Class 6</MenuItem>
           </Select>
         </FormControl>
 
         <Grid container spacing={3}>
           <Grid item xs={4}>
-            <Typography variant="h5">Username</Typography>
+            <Typography variant="h4">Username<hr style={{height:"3px", backgroundColor: '#1976d2', border: 'none'}}/></Typography>
           </Grid>
           <Grid item xs={4}>
-            <Typography variant="h5">Class</Typography>
+            <Typography variant="h4">Class<hr style={{height:"3px", backgroundColor: '#1976d2', border: 'none'}}/></Typography>
           </Grid>
           <Grid item xs={4}>
-            <Typography variant="h5">Points</Typography>
+            <Typography variant="h4">Points<hr style={{height:"3px", backgroundColor: '#1976d2', border: 'none'}}/></Typography>
           </Grid>
           {filteredData.map((item, index) => (
             <React.Fragment key={index}>
-              <Grid item xs={4}>
-                <Typography variant="body1">{item.nick}</Typography>
+              <Grid item xs={4} sx={{ m: -1, minWidth: 20 }}>
+                <Typography variant="body1" style={{fontSize: '1.3em'}}>{item.nick}<hr style={{ border: 'none', height:"1px", backgroundColor: '#1976d2'}}/></Typography>
               </Grid>
-              <Grid item xs={4}>
-                <Typography variant="body1">{item.class}</Typography>
+              <Grid item xs={4} sx={{ m: -1, minWidth: 20 }}>
+                <Typography variant="body1" style={{fontSize: '1.3em'}}>{item.class}<hr style={{ border: 'none', height:"1px", backgroundColor: '#1976d2'}}/></Typography>
               </Grid>
-              <Grid item xs={4}>
-                <Typography variant="body1">{item.points}</Typography>
+              <Grid item xs={4} sx={{ m: -1, minWidth: 20 }}>
+                <Typography variant="body1" style={{fontSize: '1.3em'}}>{item.points}<hr style={{ border: 'none', height:"1px", backgroundColor: '#1976d2'}}/></Typography>
               </Grid>
             </React.Fragment>
           ))}
         </Grid>
+        <hr/>
       </Container>
     </div>
   );
