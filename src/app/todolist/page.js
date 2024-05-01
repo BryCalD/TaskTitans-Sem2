@@ -7,6 +7,7 @@ import TaskForm from '../components/TaskForm';
 import CustomAppBar from '../components/ResponsiveAppBarToDo.js';
 import Cookies from 'universal-cookie';
 import Button from '@mui/material/Button';
+import { Avatar } from '@mui/material';
 
 // Home page for the To Do List app that contains the TaskForm and TaskList components and handles the state of the tasks and points of the user
 const Home = () => {
@@ -114,16 +115,18 @@ const Home = () => {
   };
   // Styling for the background image
   const backgroundStyle = {
-    backgroundImage: `url('/ToDoBG.jpg')`,
+    backgroundImage: `url('/BBG.jpg')`,
     backgroundSize: 'cover',
-    backgroundRepeat: 'repeat',
+    height: '87.5vh',
     margin: '-8px',
-    height: '100vh',
+    marginTop: '-3em',
+    padding: '5em',
     display: 'flex',
     alignItems: 'center',
     textAlign: 'center',
     display: 'flex',
-    justifyContent: 'space-around'
+    justifyContent: 'space-around',
+    overflow: 'hidden',
   };
 
   return (
@@ -142,20 +145,37 @@ const Home = () => {
           backdropFilter: 'blur(2px)',
           border: '3px solid #1976d2',
         }}>
-          
-          <h1 style={{color: 'white', fontFamily: 'Cascadia Mono, sans-serif', fontSize: '3em'}}>{username}'s <br/>To-Do List</h1>
-          <hr style={{backgroundColor: '#1976d2', width: '25.5em', height: '5px', margin: '-10px'}}/>
-
-          <p style={{fontSize: '1.3em', fontFamily: 'Cascadia Code, sans-serif', color:'white'}}>{username}! Make sure to save your points </p><p style={{fontFamily:'impact, sans-serif', fontSize:'2.5em', color: '#1976d2', border:'3px solid #1976d2', backgroundColor: 'white', margin: '1em'}}>{points}</p>
-          <button onClick={savePoints} style={{color: '#1976d2', backgroundColor: 'white',borderRadius: '5px', blockSize: '3em', fontSize: '1em' }}>Save Points</button>
-          <h3>Custom Task</h3>
+          <h1 style={{color: 'white', fontFamily: 'Cascadia Mono, sans-serif', fontSize: '3em'}}>Add Tasks</h1>
+          <hr style={{backgroundColor: '#1976d2', width: '25.5em', height: '5px', margin: '-10px', border: 'none'}}/>
+          <br/>
+          <h3 style={{color: 'white', fontFamily: 'Cascadia Code, sans-serif', fontSize: '1.5em'}}>Add a task to your list</h3>
+          <p style={{color: 'white', fontFamily: 'Cascadia Code, sans-serif', fontSize: '1em'}}>Create Your Own Task!</p>
           <TaskForm addTask={addTask} />
+
+          <p style={{color: 'white', fontFamily: 'Cascadia Code, sans-serif', fontSize: '1em'}}>Sample Tasks</p>
+          <button onClick={addMathTask}>4-minute Maths<Avatar alt="Math" src="/math.png" style={{textalign: 'center'}} /></button>
           <br /><br />
-          <button onClick={addMathTask}>Start 4-minute Math Task</button>
+          <button onClick={addReadingTask}>5-minute English<Avatar alt="Reading" src="/book.png" /></button>
           <br /><br />
-          <button onClick={addReadingTask}>Start 5-minute Reading Task</button>
-          <br /><br />
-          <button onClick={addWritingTask}>Start 8-minute Writing Task</button>
+          <button onClick={addWritingTask}>8-minute Biology<Avatar alt="Bio" src="/sci.png" /></button>
+        </Container>
+        <Container component="main" maxWidth="xs" style={{ 
+          marginTop: '1px',
+          backgroundColor: 'rgba(150, 150, 150, 0.3)',
+          borderRadius: '50px', 
+          paddingTop: '0px',
+          paddingleft: '1em',
+          paddingBottom: '1em',
+          paddingRight: '1em',
+          backdropFilter: 'blur(2px)',
+          border: '3px solid #1976d2',
+        }}>
+                    
+          <h1 style={{color: 'white', fontFamily: 'Cascadia Mono, sans-serif', fontSize: '3em'}}>{username}'s <br/>Points</h1>
+          <hr style={{backgroundColor: '#1976d2', width: '25.5em', height: '5px', margin: '-10px', border: 'none'}}/>
+
+          <p style={{fontSize: '1.3em', fontFamily: 'Cascadia Code, sans-serif', color:'white'}}>{username}! Make sure to save your points! </p><p style={{fontFamily:'impact, sans-serif', fontSize:'2.5em', color: '#1976d2', border:'3px solid #1976d2', backgroundColor: 'white', margin: '1em'}}>{points}</p>
+          <button onClick={savePoints} style={{color: 'white', backgroundColor: '#1976d2',borderRadius: '5px', blockSize: '3em', fontSize: '1em' }}>Save Points</button>
         </Container>
         <Container component="main" maxWidth="xs" style={{ 
           marginTop: '1px',
@@ -168,11 +188,12 @@ const Home = () => {
           backdropFilter: 'blur(2px)',
           border: '3px solid #1976d2',
           }}>
-          <h1>Current Tasks</h1>
+          <h1 style={{color: 'white', fontFamily: 'Cascadia Mono, sans-serif', fontSize: '3em'}}>{username}'s <br/>Current Tasks</h1>
+          <hr style={{backgroundColor: '#1976d2', width: '25em', height: '5px', margin: '-10px', border: 'none'}}/>
           {tasks.length > 0 ? (
             <TaskList tasks={tasks} completeTask={completeTask} removeTask={removeTask} />
           ) : (
-          <p>Waiting for tasks...</p>
+          <p style={{fontSize: '1.3em', fontFamily: 'Cascadia Code, sans-serif', color:'white'}}>Waiting for tasks...</p>
           )}
   </Container>
       </div>

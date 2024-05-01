@@ -5,14 +5,14 @@ const TaskList = ({ tasks, removeTask, completeTask }) => {
   return (
     <ul>
       {tasks.map((task, index) => (
-        <li key={index}>
+        <div style={{ marginLeft: '-2.5em' }} key={index}>
           <div>
-            <p>{task.task}</p>
-            {task.timer > 0 && <p>Time Left: {formatTime(task.timer)}</p>}
+            <p style={{ fontFamily: 'Cascadia Code', color: 'white', fontSize: '1.5em' }}>{task.task}</p>
+            {task.timer > 0 && <p style={{ fontFamily: 'Cascadia Code', color: 'white', fontSize: '1em' }}>Time Elapsed: {formatTime(task.timer)}</p>}
           </div>
-          <button onClick={() => completeTask(index)}>Mark as Complete</button>
-          <button onClick={() => removeTask(index)}>Remove</button>
-        </li>
+          <button style={{ color: 'white', backgroundColor: '#1976d2', borderRadius: '5px', blockSize: '3em', fontSize: '1em', marginRight: '1em' }} onClick={() => completeTask(index)}>Mark as Complete</button>
+          <button style={{ color: 'white', backgroundColor: '#1976d2', borderRadius: '5px', blockSize: '3em', fontSize: '1em', marginLeft: '1em' }} onClick={() => removeTask(index)}>Remove</button>
+        </div>
       ))}
     </ul>
   );

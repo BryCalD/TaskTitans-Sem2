@@ -54,7 +54,7 @@ const HomePage = () => {
     <div style={backgroundStyle}>
       <CustomAppBar />
       <Container>
-      <Typography variant="h2" gutterBottom style={titleStyle}>
+      <Typography component="h2" variant="h2" gutterBottom style={titleStyle}>
           Task Titans
           <br/>
           <hr style={{backgroundColor: 'White', width: '900px', height: '5px', margin: '-10px'}}/>

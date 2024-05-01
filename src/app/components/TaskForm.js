@@ -1,4 +1,5 @@
 // components/TaskForm.js
+import { Avatar } from '@mui/material';
 import React, { useState } from 'react';
 
 const TaskForm = ({ addTask }) => {
@@ -27,13 +28,16 @@ const TaskForm = ({ addTask }) => {
         value={task}
         onChange={(e) => setTask(e.target.value)}
       />
+      
+      <br/>
       <input
         type="text"
         placeholder="Time (format: MM:SS)"
         value={timerInput}
         onChange={(e) => setTimerInput(e.target.value)}
       />
-      <button type="submit">Add Task</button>
+      <br/><br/>
+      <button type="submit">Add Task <Avatar src="/Clock.png" /></button>
     </form>
   );
 };
